@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+
+# Build de producción (Railway lo regenera en cada deploy)
+dist/
+
+# Variables de entorno — NUNCA subir al repositorio
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# TypeScript compilado
+*.tsbuildinfo
