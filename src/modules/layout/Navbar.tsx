@@ -69,7 +69,6 @@ export function Navbar() {
         <ul
           className="hidden md:flex"
           style={{
-            display: 'flex',
             gap: 24,
             listStyle: 'none',
             margin: 0,
@@ -99,39 +98,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 7,
-            background: '#1C1917',
-            color: '#FAFAF8',
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13,
-            fontWeight: 500,
-            padding: '9px 18px',
-            borderRadius: 100,
-            textDecoration: 'none',
-            transition: 'background 0.2s, transform 0.2s',
-            flexShrink: 0,
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = '#B07D4A';
-            e.currentTarget.style.transform = 'translateY(-1px)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = '#1C1917';
-            e.currentTarget.style.transform = 'none';
-          }}
-        >
-          <MessageCircle size={14} />
-          WhatsApp
-        </a>
 
         <button
           className="md:hidden"

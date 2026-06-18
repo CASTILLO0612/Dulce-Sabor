@@ -128,39 +128,8 @@ export function HowToBuySection() {
           ))}
         </div>
 
-        {/* ── CTA ────────────────────────────────────────────── */}
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(56px, 7vw, 80px)' }}>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              background: '#1C1917',
-              color: '#FAFAF8',
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 15,
-              fontWeight: 500,
-              padding: '14px 32px',
-              borderRadius: 100,
-              textDecoration: 'none',
-              transition: 'background 0.2s, transform 0.15s',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = '#B07D4A';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = '#1C1917';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'none';
-            }}
-          >
-            <MessageCircle size={18} />
-            Iniciar mi pedido por WhatsApp
-          </a>
-        </div>
+
+
 
         {/* ── Payment Methods — clean icon rows, NO cards ──── */}
         <div style={{ marginBottom: 'clamp(48px, 6vw, 64px)' }}>

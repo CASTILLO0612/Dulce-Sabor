@@ -214,29 +214,8 @@ export function FAQSection() {
               lineHeight: 1.6,
             }}
           >
-            ¿No encontraste lo que buscabas?
+            ¿No encontraste lo que buscabas? Escríbenos directamente al <strong style={{ color: '#B07D4A' }}>+505 8953 5705</strong>.
           </p>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              color: '#B07D4A',
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 14,
-              fontWeight: 500,
-              textDecoration: 'none',
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-          >
-            <MessageCircle size={16} />
-            Hacer mi pregunta por WhatsApp →
-          </a>
         </div>
       </div>
     </section>

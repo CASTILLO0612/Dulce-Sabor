@@ -330,7 +330,7 @@ export function Footer() {
                   </span>
                 </a>
                 <a
-                  href="mailto:hola@dulcesabor.ni"
+                  href="mailto:dulcesabornagarote@gmail.com"
                   style={{ display: 'flex', alignItems: 'flex-start', gap: 10, textDecoration: 'none' }}
                 >
                   <Mail size={14} style={{ color: '#B07D4A', flexShrink: 0, marginTop: 3 }} />
@@ -342,7 +342,7 @@ export function Footer() {
                       color: '#78716C',
                     }}
                   >
-                    hola@dulcesabor.ni
+                    dulcesabornagarote@gmail.com
                   </span>
                 </a>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
