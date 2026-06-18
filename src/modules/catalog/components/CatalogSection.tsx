@@ -415,7 +415,8 @@ function ProductDetailModal({
           background: '#FFFFFF',
           borderRadius: 24,
           border: '1px solid #EDE8E3',
-          overflow: 'hidden',
+          overflowY: 'auto',
+          overflowX: 'hidden',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
           boxShadow: '0 24px 60px rgba(28,25,23,0.22)',
@@ -462,15 +463,12 @@ function ProductDetailModal({
           </div>
         </div>
 
-        {/* Content side */}
         <div
           className="hide-scrollbar"
           style={{
-            overflowY: 'auto',
             padding: 'clamp(28px, 5vw, 44px)',
             position: 'relative',
             background: '#FFFFFF',
-            maxHeight: '90vh',
           }}
         >
           <button
