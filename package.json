@@ -2,6 +2,9 @@
   "name": "dulce-sabor",
   "private": true,
   "version": "0.0.1",
+  "engines": {
+    "node": "20.x"
+  },
   "type": "module",
   "scripts": {
     "build": "vite build",
