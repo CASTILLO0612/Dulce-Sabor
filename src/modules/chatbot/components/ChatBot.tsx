@@ -5,6 +5,30 @@ interface Message {
   role: 'user' | 'model';
   parts: string;
   image?: string;
+  isNew?: boolean;
+}
+
+function TypewriterText({ text, onComplete, onUpdate }: { text: string; onComplete: () => void; onUpdate: () => void }) {
+  const [displayedText, setDisplayedText] = useState('');
+  
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex < text.length) {
+        setDisplayedText(text.slice(0, currentIndex + 3));
+        currentIndex += 3;
+        onUpdate(); // scroll to bottom while typing
+      } else {
+        setDisplayedText(text);
+        clearInterval(interval);
+        onComplete();
+      }
+    }, 12);
+    
+    return () => clearInterval(interval);
+  }, [text]); // omit callbacks from deps to prevent restart
+
+  return <>{renderMarkdown(displayedText)}</>;
 }
 
 /** Convierte markdown básico (**negrita**, • viñetas, saltos de línea) en JSX elegante */
@@ -132,6 +156,7 @@ export function ChatBot() {
           role: 'model',
           parts: data.text,
           image: imageUrl,
+          isNew: true, // Marcar como nuevo para el efecto de streaming
         },
       ]);
     } catch (err) {
@@ -141,6 +166,7 @@ export function ChatBot() {
         {
           role: 'model',
           parts: 'Disculpa, en este momento tengo problemas para procesar tu consulta. Por favor, escríbenos directamente a WhatsApp y te atenderemos de inmediato.',
+          isNew: true,
         },
       ]);
     } finally {
@@ -282,11 +308,23 @@ export function ChatBot() {
                       boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
                     }}
                   >
-                    {isBot ? renderMarkdown(msg.parts) : msg.parts}
+                    {isBot && msg.isNew ? (
+                      <TypewriterText
+                        text={msg.parts}
+                        onUpdate={scrollToBottom}
+                        onComplete={() => {
+                          setHistory(curr => curr.map((m, i) => (i === idx ? { ...m, isNew: false } : m)));
+                        }}
+                      />
+                    ) : isBot ? (
+                      renderMarkdown(msg.parts)
+                    ) : (
+                      msg.parts
+                    )}
                   </div>
 
-                  {/* Render Visual AI Sketch Card if available */}
-                  {msg.image && (
+                  {/* Render Visual AI Sketch Card if available (only after streaming finishes) */}
+                  {msg.image && !msg.isNew && (
                     <div
                       style={{
                         background: '#FFFFFF',
