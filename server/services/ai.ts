@@ -118,7 +118,7 @@ export class AIService {
         model: 'gemini-2.5-flash',
         config: {
           systemInstruction: SYSTEM_PROMPT,
-          maxOutputTokens: 500,
+          maxOutputTokens: 2000,
         },
         contents,
       });
